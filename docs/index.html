@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Conway's Game of Life</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      flex-flow: column nowrap;
+      height: 100vh;
+    }
+
+    .game {
+      flex-grow: 1;
+      margin: 1rem;
+      order: 2;
+    }
+
+    .sidebar {
+      background: #eee;
+      order: 1;
+      height: 250px;
+    }
+
+    .sidebar-title {
+      text-align: center;
+      padding: 1rem 0;
+      border-bottom: 1px dashed #aaa;
+    }
+
+    .contorller {
+      padding: 1rem;
+    }
+
+    .item {
+      margin: .5rem 0;
+    }
+
+    .item .item-label {
+      display: inline-block;
+      width: 5rem;
+    }
+
+    .item select, .item input {
+      padding: .2rem;
+    }
+
+    .button-group {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    #start {
+      border: none;
+      width: 10rem;
+      font-size: 1.2rem;
+      color: #FFF;
+      background: #4b8bf5;
+      padding: .5rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        flex-flow: row nowrap;
+      }
+
+      .sidebar {
+        width: 500px;
+        height: 100vh;
+        order: 2;
+      }
+
+      .game {
+        order: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="game">
+      <canvas id="game-canvas"></canvas>
+    </div>
+    <div class="sidebar">
+      <h1 class="sidebar-title">Conway's Game of Life</h1>
+      <div class="contorller">
+        <div class="item">
+          <span class="item-label">Frequency: </span>
+          <input id="frequency" type="number" min="100" value="100"> ms
+        </div>
+        <div class="item">
+          <span class="item-label">Pattern: </span>
+          <select id="pattern">
+            <option value="blinker">Blinker</option>
+            <option value="toad">Toad</option>
+            <option value="random">Random</option>
+          </select>
+          <button class="btn" id="random" style="display: none;">RANDOM</button>
+        </div>
+        <div class="button-group">
+          <button class="btn" id="start">START</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>
