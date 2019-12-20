@@ -1,5 +1,5 @@
 {
-  "name": "game-of-life",
+  "name": "@tyx1703/game-of-life",
   "version": "1.0.0",
   "description": "Conway's Game of Life implements by TypeScript",
   "main": "src/game.ts",
@@ -28,5 +28,8 @@
     "webpack": "^4.41.3",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }
