@@ -2,7 +2,7 @@
   "name": "game-of-life",
   "version": "1.0.0",
   "description": "Conway's Game of Life implements by TypeScript",
-  "main": "src/index.ts",
+  "main": "src/game.ts",
   "repository": "git@github.com:YanxinTang/game-of-life.git",
   "author": "tyx1703 <tyx1703@gmail.com>",
   "license": "MIT",
