@@ -23,3 +23,9 @@ jobs:
         yarn build
       env:
         CI: true
+    - name: code coverage
+      run: |
+        npm install codecov -g
+        codecov -f coverage/*.json
+      env:
+        CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
