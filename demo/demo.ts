@@ -1,4 +1,4 @@
-import Game from '../src/game';
+import { Game } from '../src/game';
 import { Pattern } from '../src/table';
 
 const blinker: Pattern = [
@@ -49,7 +49,7 @@ startBtn.addEventListener('click', (() => {
     if (pause) {
       game.start();
     } else {
-      game.resume();
+      game.stop();
     }
     pause = !pause; 
     this.innerText = pause ? 'START' : 'PAUSE';

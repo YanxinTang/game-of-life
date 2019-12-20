@@ -31,7 +31,7 @@ class Game {
   public frequency: number;
   private tick: NodeJS.Timeout;
 
-  constructor(selector: string, options: GameOptions) {
+  constructor(selector: string, options: GameOptions = defaultOptions) {
     const o = {...defaultOptions, ...options};
 
     const canvas: HTMLCanvasElement = document.body.querySelector(selector);
@@ -70,7 +70,7 @@ class Game {
     return this;
   }
 
-  private update(): Game {
+  public update(): Game {
     this.table.update();
     return this;
   }
@@ -85,9 +85,10 @@ class Game {
     return this;
   }
 
-  public resume(): void {
+  public stop(): Game {
     clearTimeout(this.tick);
+    return this;
   }
 }
 
-export default Game;
+export { Game, defaultOptions };

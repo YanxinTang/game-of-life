@@ -1,4 +1,4 @@
-import Game from './game';
+import { Game } from './game';
 
 enum Status {
   Dead = 0,

@@ -24,7 +24,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'game-of-life.min.js',
     library: 'Game',
-    libraryExport: 'default',
+    libraryExport: 'Game',
     libraryTarget: 'umd',
   },
 };
