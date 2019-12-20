@@ -1,4 +1,5 @@
 *.log
+*.patch
 
 # Dependency directories
 node_modules/

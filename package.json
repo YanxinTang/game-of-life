@@ -8,7 +8,9 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js --open",
-    "build": "webpack --config webpack.build.js"
+    "build:demo": "webpack --config webpack.demo.prod.js",
+    "build:module": "webpack --config webpack.module.prod.js",
+    "build": "yarn build:module && yarn build:demo"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",

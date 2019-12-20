@@ -1,5 +1,5 @@
-import Game from './game';
-import { Pattern } from './table';
+import Game from '../src/game';
+import { Pattern } from '../src/table';
 
 const blinker: Pattern = [
   [1, 1, 1]
