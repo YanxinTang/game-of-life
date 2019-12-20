@@ -2,29 +2,31 @@ name: publish
 
 on:
   release:
-    types: [created]
+    types: [published]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm ci
-      - run: npm test
-
   publish-npm:
-    needs: build
+    
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: yarn install
-      - run: yarn publish --access public
+
+      - name: yarn install, build
+        run: |
+          yarn install
+          yarn build
+
+      - name: Create .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" >> ~/.npmrc
+
+      - name: publish to npm
+        run: |
+          yarn install
+          yarn publish --new-version ${GITHUB_REF#"refs/tags/"} --no-git-tag-version --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
